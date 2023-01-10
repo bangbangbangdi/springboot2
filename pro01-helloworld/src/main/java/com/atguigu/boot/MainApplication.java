@@ -63,6 +63,9 @@ public class MainApplication {
 
         boolean hehe = run.containsBean("hehe");
         System.out.println("hehe " + hehe);
+
+        int beanDefinitionCount = run.getBeanDefinitionCount();
+        System.out.println(beanDefinitionCount);
     }
 
 }

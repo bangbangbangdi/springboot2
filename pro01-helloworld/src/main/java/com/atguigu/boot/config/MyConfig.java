@@ -21,8 +21,8 @@ import org.springframework.context.annotation.*;
  * 5.@ImportResource("classpath:bean.xml")
  *      引入原生配置文件
  * */
-//声明这是一个配置类 == 配置文件
 @Import({User.class, DBHelper.class})
+//声明这是一个配置类 == 配置文件
 @Configuration(proxyBeanMethods = false)
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
