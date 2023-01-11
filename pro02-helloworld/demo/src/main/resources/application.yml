@@ -1,0 +1,29 @@
+person:
+  userName: "zhangsan  \n  lisi"
+  boss: true
+  birth: 2023/11/11
+  age: 18
+#  interests: [篮球,LOL]
+  interests:
+    - 篮球
+    - LOL
+  animal: [咩咩,狗狗]
+#  score:
+#    english: 80
+#    math: 90
+  score: {english:80,math:90}
+  salarys:
+    - 9999
+    - 8888
+  pet:
+    name: 勾勾
+    weight: 99.99
+  allPets:
+    sick:
+      - {name: 修勾一号,weight: 50}
+      - name: 修勾二号
+        weight: 70
+      - name: 阿强
+        weight: 80
+    health:
+      - {name: 怀民,weight: 39}
