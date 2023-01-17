@@ -47,12 +47,25 @@ public class HelloController {
         return map;
     }
 
-    @GetMapping("/cars/sell")
+    // /car/77/owner/bangdi?age=34&inters=game&inters=fitness
+    @GetMapping("/cars/{path}")
     public Map carsSell(@MatrixVariable("low") Integer low,
-                        @MatrixVariable("brand")List<String> brand){
+                        @MatrixVariable("brand")List<String> brand,
+                        @PathVariable("path") String path){
         Map<String,Object> map = new HashMap<>();
         map.put("low",low);
         map.put("brand",brand);
+        map.put("path",path);
+        return map;
+    }
+
+    // /boss/1;age=20/2;age=10
+    @GetMapping("/boss/{bossId}/{empId}")
+    public Map boss(@MatrixVariable(value = "age",pathVar = "bossId")Integer bossAge,
+                    @MatrixVariable(value = "age",pathVar = "empId")Integer empAge){
+        Map<String,Object> map = new HashMap<>();
+        map.put("bossAge",bossAge);
+        map.put("empage",empAge);
         return map;
     }
 
