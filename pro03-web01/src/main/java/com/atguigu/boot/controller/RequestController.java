@@ -1,11 +1,9 @@
 package com.atguigu.boot.controller;
 
+import com.atguigu.boot.bean.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -55,6 +53,12 @@ public class RequestController {
         map.put("world", world);
         map.put("message",message);
         return map;
+    }
+
+    @PostMapping("/saveuser")
+    @ResponseBody
+    public Person saveuser(Person person){
+        return person;
     }
 
 }
