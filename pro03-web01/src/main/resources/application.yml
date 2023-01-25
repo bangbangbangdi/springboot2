@@ -7,3 +7,6 @@ spring:
   mvc:
     contentnegotiation:
       favor-parameter: true
+server:
+  servlet:
+    context-path: /world
