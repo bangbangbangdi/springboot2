@@ -29,7 +29,7 @@
             <img src="images/login-logo.png" alt=""/>
         </div>
         <div class="login-wrap">
-            <label style="color: red" th:text="${msg}"></label>
+            <label style="color: red" th:text="${msg != null ? msg : session.msg}"></label>
             <input type="text" name="userName" class="form-control" placeholder="User ID" autofocus>
             <input type="password" name="password" class="form-control" placeholder="Password">
 
