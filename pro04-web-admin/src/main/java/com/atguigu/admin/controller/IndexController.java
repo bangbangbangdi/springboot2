@@ -1,7 +1,6 @@
 package com.atguigu.admin.controller;
 
-import com.atguigu.admin.bean.Fruit;
-import com.atguigu.admin.bean.User;
+import com.atguigu.admin.bean.*;
 import com.atguigu.admin.service.FruitService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +28,18 @@ public class IndexController {
     FruitService fruitService;
 
     @ResponseBody
+    @GetMapping("/city")
+    public City getCityById(@RequestParam("id")Long id){
+
+    }
+
+    @ResponseBody
     @GetMapping("/fruit")
     public Fruit getById(@RequestParam("fid") Integer fid){
         Fruit fruit = fruitService.getFruitById(fid);
         //log.info(fruit.toString());
         return fruit;
     }
-
 
     @ResponseBody
     @GetMapping("/sql")
