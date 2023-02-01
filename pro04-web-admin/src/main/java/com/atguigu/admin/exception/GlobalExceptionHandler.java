@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({ArithmeticException.class, NullPointerException.class}) // 异常处理
+    //@ExceptionHandler({ArithmeticException.class, NullPointerException.class}) // 异常处理
     public String handlerArithException(Exception e){
 
         log.error("异常是:{}");

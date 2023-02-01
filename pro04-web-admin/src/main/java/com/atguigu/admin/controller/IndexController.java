@@ -1,12 +1,18 @@
 package com.atguigu.admin.controller;
 
+import com.atguigu.admin.bean.Fruit;
 import com.atguigu.admin.bean.User;
+import com.atguigu.admin.service.FruitService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +21,28 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 public class IndexController {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    FruitService fruitService;
+
+    @ResponseBody
+    @GetMapping("/fruit")
+    public Fruit getById(@RequestParam("fid") Integer fid){
+        Fruit fruit = fruitService.getFruitById(fid);
+        //log.info(fruit.toString());
+        return fruit;
+    }
+
+
+    @ResponseBody
+    @GetMapping("/sql")
+    public String queryFromDb(){
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from jobs", Long.class);
+        return aLong.toString();
+    }
 
     @GetMapping({"/", "/login"})
     public String loginPage(HttpServletRequest request) {

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Order(value= Ordered.HIGHEST_PRECEDENCE) // 优先级，数字越小优先级越高
-@Component
+@Order(value= Ordered.LOWEST_PRECEDENCE) // 优先级，数字越小优先级越高
+//@Component
 public class CustomerHandlerExceptionResolver implements HandlerExceptionResolver {
 
     @Override

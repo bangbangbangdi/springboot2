@@ -30,7 +30,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestURI = request.getRequestURI();
-        log.info("拦截的请求路径是{}" , requestURI);
         // 登录检查逻辑
         HttpSession session = request.getSession();
         Object loginUser = session.getAttribute("loginUser");
@@ -38,6 +37,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             // 放行
             return true;
         }
+        log.info("拦截的请求路径是{}" , requestURI);
         // 拦截器
         request.setAttribute("msg","请先登录");
         response.sendRedirect("/");
@@ -71,6 +71,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        log.info("afterCompletion执行异常{}",ex);
+        //log.info("afterCompletion执行异常{}",ex);
     }
 }
