@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import com.atguigu.admin.bean.City;
 
-@Mapper
+//@Mapper
 public interface CityMapper {
 
     @Select("select * from city where id = #{id}")

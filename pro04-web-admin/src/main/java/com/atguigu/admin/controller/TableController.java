@@ -2,6 +2,8 @@ package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.User;
 import com.atguigu.admin.exception.UserTooManyException;
+import com.atguigu.admin.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,9 @@ import java.util.List;
 
 @Controller
 public class TableController {
+
+    @Autowired
+    UserService userService;
 
     /**
      * 不带请求参数或者参数不对时 httpStatus为400：Bad Request 一般都是浏览器参数没有传递正确
@@ -26,6 +31,7 @@ public class TableController {
 
     @GetMapping("/dynamic_table")
     public String dynamic_table(Model model){
+        /*
         List<User> users = Arrays.asList(
                 new User("zhangsan", "111"),
                 new User("lisi", "222"),
@@ -33,10 +39,13 @@ public class TableController {
                 new User("zhaoliu", "444"),
                 new User("xixi", "555"));
         model.addAttribute("users",users);
+        */
 
-        if (users.size() > 3){
-            throw new UserTooManyException();
-        }
+        //if (users.size() > 3){
+        //    throw new UserTooManyException();
+        //}
+        List<User> list = userService.list();
+        model.addAttribute("users",list);
 
         return "table/dynamic_table";
     }
