@@ -1,6 +1,7 @@
 package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.*;
+import com.atguigu.admin.service.CityService;
 import com.atguigu.admin.service.FruitService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,20 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/city")
     public City getCityById(@RequestParam("id")Long id){
-
+        return cityService.getById(id);
     }
     */
+
+    @Autowired
+    CityService cityService;
+
+    @ResponseBody
+    @PostMapping("/city")
+    public City saveCity(City city){
+        cityService.saveCity(city);
+        log.info(city.toString());
+        return city;
+    }
 
     @ResponseBody
     @GetMapping("/fruit")

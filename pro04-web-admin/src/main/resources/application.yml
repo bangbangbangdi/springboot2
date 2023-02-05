@@ -4,9 +4,13 @@ spring:
       max-file-size: 10MB
       max-request-size: 100MB
   datasource:
-    url: jdbc:mysql://localhost:3306/atguigudb
+#    url: jdbc:mysql://localhost:3306/atguigudb # For windows
+    url: jdbc:mysql://localhost:3306/ssm # For mac
     username: root
-    password: abc123
+    # For Windows
+#    password: abc123
+    # For Mac
+    password: jiangui.1
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     druid:

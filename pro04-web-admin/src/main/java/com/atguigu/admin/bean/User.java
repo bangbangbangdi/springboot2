@@ -11,8 +11,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("user_tbl")
-public class User /*implements Serializable*/ {
+//@TableName("user_tbl")
+public class User implements Serializable {
 
     /*
     * 默认所有属性都应该在表中
