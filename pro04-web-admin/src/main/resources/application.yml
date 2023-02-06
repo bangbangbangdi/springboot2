@@ -4,13 +4,13 @@ spring:
       max-file-size: 10MB
       max-request-size: 100MB
   datasource:
-    url: jdbc:mysql://localhost:3306/atguigudb # For windows
-#    url: jdbc:mysql://localhost:3306/ssm # For mac
+#    url: jdbc:mysql://localhost:3306/atguigudb # For windows
+    url: jdbc:mysql://localhost:3306/ssm # For mac
     username: root
     # For Windows
-    password: abc123
+#    password: abc123
     # For Mac
-#    password: jiangui.1
+    password: jiangui.1
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     druid:
@@ -48,4 +48,21 @@ mybatis:
   configuration: # 指定mybatis全局配置文件中的相关配置项
     map-underscore-to-camel-case: true
 
-
+# management 是所有actuator的配置
+# management.endpoint.端点名.xxx  对某个端点对具体配置
+management:
+  endpoints:
+    enabled-by-default: false  # 默认开启所有监控端点  true
+    web:
+      exposure:
+        include: '*' # 以web方法暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    info:
+      enabled: true
+    beans:
+      enabled: true
+    metrics:
+      enabled: true
