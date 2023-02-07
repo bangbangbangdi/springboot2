@@ -4,13 +4,13 @@ spring:
       max-file-size: 10MB
       max-request-size: 100MB
   datasource:
-#    url: jdbc:mysql://localhost:3306/atguigudb # For windows
-    url: jdbc:mysql://localhost:3306/ssm # For mac
+    url: jdbc:mysql://localhost:3306/atguigudb # For windows
+#    url: jdbc:mysql://localhost:3306/ssm # For mac
     username: root
     # For Windows
-#    password: abc123
+    password: abc123
     # For Mac
-    password: jiangui.1
+#    password: jiangui.1
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     druid:
@@ -34,12 +34,23 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
+      pooling-connection-info:
 
   #    filters: stat,wall
 #    type: com.zaxxer.hikari.HikariDataSource
   jdbc:
     template:
       query-timeout: 3
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        instance:
+          prefer-ip: true   # 使用IP注册
+  application:
+    name: pro04-web-admin
+
+
 
 # 配置mybatis规则
 mybatis:
@@ -52,7 +63,7 @@ mybatis:
 # management.endpoint.端点名.xxx  对某个端点对具体配置
 management:
   endpoints:
-    enabled-by-default: false  # 默认开启所有监控端点  true
+    enabled-by-default: true  # 默认开启所有监控端点  true
     web:
       exposure:
         include: '*' # 以web方法暴露所有端点
@@ -66,3 +77,13 @@ management:
       enabled: true
     metrics:
       enabled: true
+
+
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.version@
+
+
+

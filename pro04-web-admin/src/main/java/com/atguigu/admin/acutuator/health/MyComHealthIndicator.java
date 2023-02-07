@@ -1,4 +1,4 @@
-package com.atguigu.admin.health;
+package com.atguigu.admin.acutuator.health;
 
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;

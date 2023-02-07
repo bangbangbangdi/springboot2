@@ -1,0 +1,6 @@
+person:
+  name: pro-zhang
+#  age: 10
+
+server:
+  port: 8000

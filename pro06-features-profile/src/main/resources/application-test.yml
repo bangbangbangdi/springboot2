@@ -1,0 +1,5 @@
+person:
+  name: test-zhang
+
+server:
+  port: 7000
