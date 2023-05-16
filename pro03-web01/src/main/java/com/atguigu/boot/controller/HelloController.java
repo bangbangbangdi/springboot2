@@ -27,18 +27,22 @@ public class HelloController {
                                       @RequestParam("age") String age,
                                       @RequestParam("inters") List<String> inters,
                                       @RequestParam Map<String, String> params,
-                                      @CookieValue("Idea-f84906c2") String idea,
-                                      @CookieValue("Idea-f84906c2") Cookie cookie) {
+                                      @CookieValue(value = "Idea-27e8f60f",required = false) String idea,
+                                      @CookieValue(value = "Idea-27e8f60f",required = false) Cookie cookie) {
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
         map.put("username", name);
+        // 获取所有的PathVariable
         map.put("pv", pv);
         map.put("userAgent", userAgent);
+        // 所有的RequestHeader
         map.put("header", header);
         map.put("age", age);
         map.put("inters", inters);
+        // 所有的params
         map.put("paramms", params);
         map.put("idea",idea);
+        // cookie的所有信息
         map.put("cookie",cookie);
         return map;
     }
@@ -50,7 +54,7 @@ public class HelloController {
         return map;
     }
 
-    // /car/77/owner/bangdi?age=34&inters=game&inters=fitness
+    // cars/sell;low=34;brand=byd,audi,yd
     @GetMapping("/cars/{path}")
     public Map carsSell(@MatrixVariable("low") Integer low,
                         @MatrixVariable("brand")List<String> brand,
